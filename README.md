@@ -84,7 +84,7 @@ If you use these artefacts, please cite the survey:
 
 ## Contact
 
-Correspondence: Longbiao Wang <longbiao_wang@tju.edu.cn>
+Correspondence: YUSHU LIU <liuyushu@tju.edu.cn>
 (Tianjin Key Laboratory of Cognitive Computing and Application, School of Artificial Intelligence, Tianjin University.)
 
 Issues and pull requests are welcome. We especially encourage contributions that:
