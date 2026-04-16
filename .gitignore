@@ -1,0 +1,20 @@
+# OS artefacts
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Data artefacts
+*.log
+*.tmp

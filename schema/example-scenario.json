@@ -1,0 +1,69 @@
+{
+  "scenario_id": "7d4f39f8-8b0d-4e7d-9d51-2b04bbd8ab11",
+  "timestamp_range": {
+    "start": "2026-02-18T09:00:00Z",
+    "end":   "2026-02-18T09:05:00Z"
+  },
+  "telemetry": [
+    {
+      "vehicle_id": "UAM-001",
+      "class": "eVTOL",
+      "trajectory": [
+        {"t": "2026-02-18T09:00:00Z", "lat": 51.4700, "lon": -0.4543, "alt_m": 120.0, "v_kt": 80.0, "hdg_deg": 90.0},
+        {"t": "2026-02-18T09:00:30Z", "lat": 51.4702, "lon": -0.4520, "alt_m": 125.0, "v_kt": 82.0, "hdg_deg": 91.0}
+      ]
+    },
+    {
+      "vehicle_id": "UAV-123",
+      "class": "multirotor",
+      "trajectory": [
+        {"t": "2026-02-18T09:00:00Z", "lat": 51.4695, "lon": -0.4530, "alt_m": 115.0, "v_kt": 25.0, "hdg_deg": 270.0},
+        {"t": "2026-02-18T09:00:30Z", "lat": 51.4697, "lon": -0.4544, "alt_m": 118.0, "v_kt": 24.0, "hdg_deg": 271.0}
+      ]
+    }
+  ],
+  "environment": {
+    "weather": "EGLL",
+    "geofences": [
+      {"aixm_ref": "urn:aixm:uk:airspace:heathrow-ctr"}
+    ]
+  },
+  "knowledge_graph": {
+    "ontology_iri": "https://atm-ontology.nasa.gov/atmonto/v1.3",
+    "triples": [
+      {"h": "UAM-001", "r": "isa", "t": "eVTOL"},
+      {"h": "UAV-123", "r": "isa", "t": "SmallUAS"},
+      {"h": "urn:aixm:uk:airspace:heathrow-ctr", "r": "hasRestriction", "t": "ControlZone"}
+    ]
+  },
+  "regulatory_layer": {
+    "rules": [
+      {
+        "id": "R1-separation",
+        "format": "SWRL",
+        "body": "eVTOL(?x) ^ SmallUAS(?y) ^ distance(?x,?y,?d) ^ swrlb:lessThan(?d,100) -> Conflict(?x,?y)"
+      }
+    ],
+    "jurisdiction": "EASA-USpace"
+  },
+  "labels": {
+    "conflict_events": [
+      {
+        "t": "2026-02-18T09:00:30Z",
+        "pair": ["UAM-001", "UAV-123"],
+        "separation_m": 85.4,
+        "severity": "High"
+      }
+    ],
+    "compliance_labels": [
+      {"rule_id": "R1-separation", "status": "violated", "provenance": "SWRL reasoner trace #1234"}
+    ],
+    "explanation_score": 4.3,
+    "difficulty_tier": "medium"
+  },
+  "metrics_config": {
+    "predictive": ["accuracy", "f1", "mae_traj"],
+    "explanatory": ["rar", "ucr", "ragas_faith"],
+    "systems": ["p95_latency", "scalability", "adv_robust"]
+  }
+}

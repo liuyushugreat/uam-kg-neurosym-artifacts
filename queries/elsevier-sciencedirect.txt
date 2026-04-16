@@ -1,0 +1,12 @@
+Title, abstract, keywords:
+("knowledge graph" OR "ontology" OR "knowledge-based") AND
+("urban air mobility" OR "UAM" OR "UAV" OR "airspace" OR "air traffic") AND
+("neuro-symbolic" OR "graph neural" OR "explainable" OR "reasoning" OR "retrieval-augmented")
+
+Date range: 2016--2026
+Journal filter: Knowledge-Based Systems, Expert Systems with Applications,
+                Information Fusion, Engineering Applications of AI,
+                Transportation Research Part C, Reliability Engineering
+                & System Safety, Aerospace Science and Technology
+Retrieved: 2026-02-15
+Raw hits: 27

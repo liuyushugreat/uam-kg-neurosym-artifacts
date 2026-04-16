@@ -1,0 +1,8 @@
+Title OR Abstract OR Keyword:
+("knowledge graph" OR "ontology" OR "knowledge-based") AND
+("urban air mobility" OR "UAM" OR "UAV" OR "airspace" OR "air traffic" OR "ATM" OR "UTM") AND
+("neuro-symbolic" OR "graph neural" OR "explainable" OR "reasoning")
+
+Publication year: 2016--2026
+Retrieved: 2026-02-14
+Raw hits: 38

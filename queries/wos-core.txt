@@ -1,0 +1,9 @@
+TS=(("knowledge graph" OR "ontology" OR "knowledge-based") AND
+   ("urban air mobility" OR "UAM" OR "UAV" OR "airspace" OR "air traffic" OR "ATM" OR "UTM") AND
+   ("neuro-symbolic" OR "graph neural" OR "explainable" OR "reasoning" OR "retrieval-augmented"))
+
+Database: Web of Science Core Collection (SCI-EXPANDED, SSCI, CPCI-S)
+Timespan: 2016--2026
+Document types: Article, Proceedings Paper, Review Article
+Retrieved: 2026-02-18
+Raw hits: 29

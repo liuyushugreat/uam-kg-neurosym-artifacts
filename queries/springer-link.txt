@@ -1,0 +1,10 @@
+('"knowledge graph" OR "ontology" OR "knowledge-based"')
+AND
+('"urban air mobility" OR "UAM" OR "UAV" OR "airspace" OR "air traffic" OR "ATM" OR "UTM"')
+AND
+('"neuro-symbolic" OR "graph neural" OR "explainable" OR "reasoning"')
+
+Content type: Conference paper, Article, Chapter
+Date: 2016--2026
+Retrieved: 2026-02-15
+Raw hits: 44

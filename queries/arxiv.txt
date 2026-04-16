@@ -1,0 +1,8 @@
+all:("knowledge graph" OR "ontology" OR "knowledge-based") AND
+all:("urban air mobility" OR "UAM" OR "UAV" OR "airspace" OR "air traffic" OR "UTM") AND
+all:("neuro-symbolic" OR "graph neural" OR "explainable" OR "reasoning")
+
+Submission date: 2016-01-01 to 2026-03-31
+Categories: cs.AI, cs.LG, cs.IR, cs.DC
+Retrieved: 2026-02-20
+Raw hits: 10

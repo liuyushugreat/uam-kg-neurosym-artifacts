@@ -1,0 +1,10 @@
+("knowledge graph" OR "ontology" OR "knowledge-based" OR "knowledge reasoning" OR "semantic web")
+AND
+("urban air mobility" OR "UAM" OR "UAV" OR "unmanned aircraft" OR "airspace" OR "air traffic" OR "ATM" OR "UTM")
+AND
+("neuro-symbolic" OR "neurosymbolic" OR "graph neural" OR "explainable" OR "reasoning" OR "retrieval-augmented")
+
+Date range: 2016-01-01 to 2026-03-31
+Content type: Journals, Conferences, Early Access
+Retrieved: 2026-02-14
+Raw hits: 61

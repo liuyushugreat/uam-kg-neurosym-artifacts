@@ -1,0 +1,8 @@
+TITLE-ABS-KEY(("knowledge graph" OR "ontology" OR "knowledge-based") AND
+             ("urban air mobility" OR "UAM" OR "UAV" OR "airspace" OR "air traffic" OR "UTM") AND
+             ("neuro-symbolic" OR "graph neural" OR "explainable" OR "reasoning"))
+AND PUBYEAR > 2015 AND PUBYEAR < 2027
+AND (LIMIT-TO(SUBJAREA,"COMP") OR LIMIT-TO(SUBJAREA,"ENGI"))
+
+Retrieved: 2026-02-18
+Raw hits: 22

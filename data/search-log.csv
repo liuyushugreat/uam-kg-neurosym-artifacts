@@ -1,0 +1,9 @@
+database,query_date,query_file,raw_hits,after_dedup,retained_stage1,notes
+IEEE Xplore,2026-02-14,queries/ieee-xplore.txt,61,52,20,"Fulltext and metadata"
+ACM Digital Library,2026-02-14,queries/acm-dl.txt,38,31,13,"Guide to Computing Literature index"
+Springer Link,2026-02-15,queries/springer-link.txt,44,36,8,"LNCS, IEEE transactions indexed"
+Elsevier ScienceDirect,2026-02-15,queries/elsevier-sciencedirect.txt,27,22,9,"Includes KBS, ESWA, INFFUS"
+Web of Science Core Collection,2026-02-18,queries/wos-core.txt,29,23,7,"SCI-E + SSCI"
+Scopus,2026-02-18,queries/scopus.txt,22,17,4,"Filtered to CS, Engineering, Aerospace"
+arXiv,2026-02-20,queries/arxiv.txt,10,10,3,"cs.AI, cs.LG, cs.IR, cs.DC categories"
+TOTAL,,,231,191,64,"Duplicates removed across sources: 96"

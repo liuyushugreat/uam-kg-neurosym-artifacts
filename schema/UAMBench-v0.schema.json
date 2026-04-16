@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/yushuliu/uam-kg-neurosym-artifacts/schema/UAMBench-v0.schema.json",
+  "title": "UAM-Bench v0 Scenario Schema",
+  "description": "Schema for UAM-Bench v0 scenarios. A scenario bundles telemetry, environment, a knowledge graph, regulatory rules, and annotations into a single JSON record for reproducible neuro-symbolic UAM evaluation.",
+  "type": "object",
+  "required": [
+    "scenario_id",
+    "timestamp_range",
+    "telemetry",
+    "environment",
+    "knowledge_graph",
+    "regulatory_layer",
+    "labels",
+    "metrics_config"
+  ],
+  "properties": {
+    "scenario_id": {
+      "type": "string",
+      "description": "Globally unique scenario identifier (UUID v4 recommended)."
+    },
+    "timestamp_range": {
+      "type": "object",
+      "required": ["start", "end"],
+      "properties": {
+        "start": {"type": "string", "format": "date-time"},
+        "end":   {"type": "string", "format": "date-time"}
+      }
+    },
+    "telemetry": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["vehicle_id", "class", "trajectory"],
+        "properties": {
+          "vehicle_id": {"type": "string"},
+          "class": {
+            "type": "string",
+            "enum": ["eVTOL", "multirotor", "fixed-wing", "RPAS"]
+          },
+          "trajectory": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["t", "lat", "lon", "alt_m"],
+              "properties": {
+                "t":       {"type": "string", "format": "date-time"},
+                "lat":     {"type": "number", "minimum": -90, "maximum": 90},
+                "lon":     {"type": "number", "minimum": -180, "maximum": 180},
+                "alt_m":   {"type": "number"},
+                "v_kt":    {"type": "number"},
+                "hdg_deg": {"type": "number", "minimum": 0, "maximum": 360}
+              }
+            }
+          }
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "required": ["weather", "geofences"],
+      "properties": {
+        "weather": {
+          "type": "string",
+          "description": "ICAO METAR station identifier used for the scenario window."
+        },
+        "geofences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["aixm_ref"],
+            "properties": {
+              "aixm_ref": {"type": "string", "description": "AIXM 5.1 airspace feature URI"}
+            }
+          }
+        }
+      }
+    },
+    "knowledge_graph": {
+      "type": "object",
+      "required": ["ontology_iri", "triples"],
+      "properties": {
+        "ontology_iri": {
+          "type": "string",
+          "format": "uri",
+          "description": "Ontology IRI, e.g., ATMONTO or AIRM-extended."
+        },
+        "triples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["h", "r", "t"],
+            "properties": {
+              "h":   {"type": "string"},
+              "r":   {"type": "string"},
+              "t":   {"type": "string"},
+              "tau": {"type": "string", "format": "date-time"}
+            }
+          }
+        }
+      }
+    },
+    "regulatory_layer": {
+      "type": "object",
+      "required": ["rules", "jurisdiction"],
+      "properties": {
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "format", "body"],
+            "properties": {
+              "id":     {"type": "string"},
+              "format": {"type": "string", "enum": ["SWRL", "SHACL"]},
+              "body":   {"type": "string"}
+            }
+          }
+        },
+        "jurisdiction": {
+          "type": "string",
+          "enum": ["EASA-USpace", "FAA-UTM"]
+        }
+      }
+    },
+    "labels": {
+      "type": "object",
+      "required": ["conflict_events", "compliance_labels"],
+      "properties": {
+        "conflict_events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["t", "pair", "separation_m", "severity"],
+            "properties": {
+              "t":            {"type": "string", "format": "date-time"},
+              "pair":         {"type": "array", "items": {"type": "string"}, "minItems": 2, "maxItems": 2},
+              "separation_m": {"type": "number", "minimum": 0},
+              "severity":     {"type": "string", "enum": ["Low", "Medium", "High", "Critical"]}
+            }
+          }
+        },
+        "compliance_labels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["rule_id", "status", "provenance"],
+            "properties": {
+              "rule_id":    {"type": "string"},
+              "status":     {"type": "string", "enum": ["satisfied", "violated", "unknown"]},
+              "provenance": {"type": "string"}
+            }
+          }
+        },
+        "explanation_score": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 5,
+          "description": "Expert Likert rating (1--5) averaged across at least three domain experts."
+        },
+        "difficulty_tier": {
+          "type": "string",
+          "enum": ["easy", "medium", "hard", "adversarial"]
+        }
+      }
+    },
+    "metrics_config": {
+      "type": "object",
+      "required": ["predictive", "explanatory", "systems"],
+      "properties": {
+        "predictive":  {"type": "array", "items": {"type": "string"}},
+        "explanatory": {"type": "array", "items": {"type": "string"}},
+        "systems":     {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}
